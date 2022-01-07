@@ -1,0 +1,25 @@
+[1] Spring obsługuje RPC za pomocą szeregu technologii zdalnego dostępu
+
+- Zdalne wywoływanie metod (RMI) przydatny przy dostępie do/udostępnianiu usług opartych na Javie, kiedy
+ograniczenia sieciowe typu firewall nie są brane pod uwagę.
+
+- Hessian lub Burlap przydatny przy dostępie do/udostępnianiu usług opartych na Javie poprzez HTTP,
+gdy ograniczenia sieciowe są brane pod uwagę. Hessian jest
+protokołem binarnym, natomiast Burlap bazuje na XML-u.
+
+- Obiekt wywołujący HTTP przydatny przy dostępie do/udostępnianiu usług opartych na Springu, gdy
+ograniczenia sieciowe są brane pod uwagę oraz gdy potrzebna
+jest serializacja Javy przez XML lub niestandardowa serializacja.
+
+- JAX-RPC i JAX-WS przydatny przy dostępie do/udostępnianiu niezależnych od platformy, bazujących
+na SOAP usług sieciowych.
+
+[2] Eksportowanie usługi RMI (Remote Method Invocation):
+
+1. Przygotowanie klasy implementacji usługi z metodami zgłaszającymi wyjątki
+java.rmi.RemoteException .
+2. Utworzenie interfejsu usługi rozszerzającego java.rmi.Remote .
+3. Wyprodukowanie za pomocą kompilatora RMI ( rmic ) namiastki klienta i klas
+szkieletowych serwera.
+4. Uruchomienie rejestru RMI dla usług.
+5. Zarejestrowanie usługi w rejestrze RMI.
