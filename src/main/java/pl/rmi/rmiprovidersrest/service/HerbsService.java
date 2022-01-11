@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 import pl.rmi.rmiprovidersrest.model.Herb;
 import java.util.List;
 
-@Service
+@Service("herbs")//kontener utworzy ziarno o identyfikatorze 'herbs'
 public interface HerbsService {
     List<Herb> allHerbs();
     void addHerb(Herb herb);

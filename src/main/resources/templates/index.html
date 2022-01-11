@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>RMI</title>
+</head>
+<body>
+<p>Na podstawie "Spring w akcji. Wydanie IV".
+
+	[1] Spring obsługuje RPC za pomocą szeregu technologii zdalnego dostępu
+
+	- Zdalne wywoływanie metod (RMI) przydatny przy dostępie do/udostępnianiu usług opartych na Javie, kiedy
+	ograniczenia sieciowe typu firewall nie są brane pod uwagę.
+
+	- Hessian lub Burlap przydatny przy dostępie do/udostępnianiu usług opartych na Javie poprzez HTTP,
+	gdy ograniczenia sieciowe są brane pod uwagę. Hessian jest
+	protokołem binarnym, natomiast Burlap bazuje na XML-u.
+
+	- Obiekt wywołujący HTTP przydatny przy dostępie do/udostępnianiu usług opartych na Springu, gdy
+	ograniczenia sieciowe są brane pod uwagę oraz gdy potrzebna
+	jest serializacja Javy przez XML lub niestandardowa serializacja.
+
+	- JAX-RPC i JAX-WS przydatny przy dostępie do/udostępnianiu niezależnych od platformy, bazujących
+	na SOAP usług sieciowych.
+
+	[2] Eksportowanie usługi RMI (Remote Method Invocation):
+
+	1. Przygotowanie klasy implementacji usługi z metodami zgłaszającymi wyjątki
+	java.rmi.RemoteException .
+	2. Utworzenie interfejsu usługi rozszerzającego java.rmi.Remote .
+	3. Wyprodukowanie za pomocą kompilatora RMI ( rmic ) namiastki klienta i klas
+	szkieletowych serwera.
+	4. Uruchomienie rejestru RMI dla usług.
+	5. Zarejestrowanie usługi w rejestrze RMI.
+
+	[3] RMI jest doskonałym sposobem komunikacji pomiędzy zdalnymi usługami, jednak
+	ma pewne ograniczenia.
+
+	- Po pierwsze, napotyka trudności w środowisku, w którym
+	strony komunikacji ukryte są za firewallami. Dzieje się tak, ponieważ RMI wykorzy-
+	stuje w komunikacji przypadkowe porty — na co przeciętny firewall nie pozwoli.
+
+	- W sieci intranet nie stanowi to problemu. Jeżeli jednak korzystasz z RMI w internecie,
+	napotkasz prawdopodobnie niejeden. I chociaż RMI obsługuje tunelowanie przez
+	HTTP (które firewalle z reguły dopuszczają), konfiguracja tunelowania RMI jest dosyć
+	skomplikowana.
+</p>
+<!--<img src="/static/rmi.png" alt="RMI">-->
+</body>
+</html>
