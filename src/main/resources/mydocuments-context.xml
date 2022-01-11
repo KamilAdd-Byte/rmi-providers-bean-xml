@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="engine" class="pl.rmi.rmiprovidersrest.annotationsbasic.engine.impl.MySearchEngine"/>
+
+    <bean id="documentType" class="pl.rmi.rmiprovidersrest.annotationsbasic.model.Type">
+        <property name="name" value="PDF"/>
+        <property name="desc" value="Portable Document Format"/>
+        <property name="extension" value=".pdf"/>
+    </bean>
+
+</beans>
