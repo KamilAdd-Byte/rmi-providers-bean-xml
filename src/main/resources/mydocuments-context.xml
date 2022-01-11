@@ -2,12 +2,45 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="engine" class="pl.rmi.rmiprovidersrest.annotationsbasic.engine.impl.MySearchEngine"/>
-
-    <bean id="documentType" class="pl.rmi.rmiprovidersrest.annotationsbasic.model.Type">
+    <bean id="engine" class="pl.rmi.rmiprovidersrest.annotationsbasic.dao.SearchEngineService">
+        <property name="documentDao" ref="documentDao"/>
+    </bean>
+    <bean id="documentDao" class="pl.rmi.rmiprovidersrest.annotationsbasic.dao.impl.DocumentRepository">
+        <property name="doc1" ref="doc1"/>
+        <property name="doc2" ref="doc2"/>
+        <property name="doc3" ref="doc3"/>
+        <property name="doc4" ref="doc4"/>
+    </bean>
+    <!--   definiowanie ref dla poszczególnych dokumentów-->
+<bean id="doc1" class="pl.rmi.rmiprovidersrest.annotationsbasic.model.Document">
+    <property name="name" value="Szablon książki"/>
+    <property name="type" value="pdfType"/>
+    <property name="location" value="..."/>
+</bean>
+    <bean id="doc2" class="pl.rmi.rmiprovidersrest.annotationsbasic.model.Document">
+        <property name="name" value="Szablon książki"/>
+        <property name="type" value="pdfType"/>
+        <property name="location" value="..."/>
+    </bean>
+    <bean id="doc3" class="pl.rmi.rmiprovidersrest.annotationsbasic.model.Document">
+        <property name="name" value="Szablon książki"/>
+        <property name="type" value="pdfType"/>
+        <property name="location" value="..."/>
+    </bean>
+    <bean id="doc4" class="pl.rmi.rmiprovidersrest.annotationsbasic.model.Document">
+        <property name="name" value="Szablon książki"/>
+        <property name="type" value="pdfType"/>
+        <property name="location" value="..."/>
+    </bean>
+<!--   definiowanie typów w bean-->
+    <bean id="webType" class="pl.rmi.rmiprovidersrest.annotationsbasic.model.Type">
+        <property name="name" value="WEB"/>
+        <property name="desc" value="Łącze sieciowe"/>
+        <property name="extension" value=".url"/>
+    </bean>
+    <bean id="pdfType" class="pl.rmi.rmiprovidersrest.annotationsbasic.model.Type">
         <property name="name" value="PDF"/>
         <property name="desc" value="Portable Document Format"/>
         <property name="extension" value=".pdf"/>
     </bean>
-
 </beans>
