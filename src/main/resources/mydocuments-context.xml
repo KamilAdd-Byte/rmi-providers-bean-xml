@@ -2,7 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="engine" class="pl.rmi.rmiprovidersrest.annotationsbasic.dao.SearchEngineService">
+    <bean id="engine" class="pl.rmi.rmiprovidersrest.annotationsbasic.dao.annotated.AnnotatedSearchEngine">
         <property name="documentDao" ref="documentDao"/>
     </bean>
     <bean id="documentDao" class="pl.rmi.rmiprovidersrest.annotationsbasic.dao.impl.DocumentRepository">
@@ -13,34 +13,39 @@
     </bean>
     <!--   definiowanie ref dla poszczególnych dokumentów-->
 <bean id="doc1" class="pl.rmi.rmiprovidersrest.annotationsbasic.model.Document">
-    <property name="name" value="Szablon książki"/>
+    <property name="name" value="Algorytmy w przykładach"/>
     <property name="type" value="pdfType"/>
-    <property name="location" value="..."/>
+    <property name="location" value="/home/kamillodzinski/git_work/rmi-providers-rest/src/main/resources/documents/Algorytmy w przykładach.pdf"/>
 </bean>
     <bean id="doc2" class="pl.rmi.rmiprovidersrest.annotationsbasic.model.Document">
-        <property name="name" value="Szablon książki"/>
-        <property name="type" value="pdfType"/>
-        <property name="location" value="..."/>
+        <property name="name" value="rmi_spring_service"/>
+        <property name="type" value="noteType"/>
+        <property name="location" value="/home/kamillodzinski/git_work/rmi-providers-rest/src/main/resources/documents/rmi_spring_service.txt"/>
     </bean>
     <bean id="doc3" class="pl.rmi.rmiprovidersrest.annotationsbasic.model.Document">
-        <property name="name" value="Szablon książki"/>
-        <property name="type" value="pdfType"/>
-        <property name="location" value="..."/>
+        <property name="name" value="Commits"/>
+        <property name="type" value="odtType"/>
+        <property name="location" value="/home/kamillodzinski/git_work/rmi-providers-rest/src/main/resources/documents/Commits.odt"/>
     </bean>
     <bean id="doc4" class="pl.rmi.rmiprovidersrest.annotationsbasic.model.Document">
-        <property name="name" value="Szablon książki"/>
-        <property name="type" value="pdfType"/>
-        <property name="location" value="..."/>
+        <property name="name" value="annotations_spring"/>
+        <property name="type" value="noteType"/>
+        <property name="location" value="/home/kamillodzinski/git_work/rmi-providers-rest/src/main/resources/documents/annotations_spring.txt"/>
     </bean>
 <!--   definiowanie typów w bean-->
-    <bean id="webType" class="pl.rmi.rmiprovidersrest.annotationsbasic.model.Type">
-        <property name="name" value="WEB"/>
-        <property name="desc" value="Łącze sieciowe"/>
-        <property name="extension" value=".url"/>
+    <bean id="odtType" class="pl.rmi.rmiprovidersrest.annotationsbasic.model.Type">
+        <property name="name" value="ODT"/>
+        <property name="desc" value="Library"/>
+        <property name="extension" value=".odt"/>
     </bean>
     <bean id="pdfType" class="pl.rmi.rmiprovidersrest.annotationsbasic.model.Type">
         <property name="name" value="PDF"/>
         <property name="desc" value="Portable Document Format"/>
         <property name="extension" value=".pdf"/>
+    </bean>
+    <bean id="noteType" class="pl.rmi.rmiprovidersrest.annotationsbasic.model.Type">
+        <property name="name" value="TXT"/>
+        <property name="desc" value="Note"/>
+        <property name="extension" value=".txt"/>
     </bean>
 </beans>

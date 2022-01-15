@@ -5,3 +5,14 @@
 @Service - Specjalizacja adnotacji @Component, warstwa usługowa;
 
 @Controller - Specjalizacja adnotacji @Component, kontekst sieciowy, obsługa widoków
+
+--------------------------------------------------------------------------------------
+Który rodzaj konfiguracji wybrać?
+
+*XML* - Z zewnętrznymi bibliotekami i różnymi środowiskami.
+
+*@Adnotacje* - Wiąże sie kontekst Spring z aplikacją
+
+*Ziarno Java* - Zalecana metoda, stosowana w przypadku ziaren i składników, które nie wiele sie zmieniają
+
+*Groovy* - nowa, prosta i oszczędna

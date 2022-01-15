@@ -20,6 +20,6 @@ public class DocumentRepository implements DocumentDao {
 
     @Override
     public Document[] getAll() {
-        return new Document[] {doc1,doc2,doc3,doc4};
+        return new Document[]{doc1, doc2, doc3, doc4};
     }
 }
