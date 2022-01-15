@@ -2,7 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="engine" class="pl.rmi.rmiprovidersrest.annotationsbasic.dao.annotated.AnnotatedSearchEngine">
+    <bean id="engine" class="pl.rmi.rmiprovidersrest.annotationsbasic.dao.SearchEngineService">
         <property name="documentDao" ref="documentDao"/>
     </bean>
     <bean id="documentDao" class="pl.rmi.rmiprovidersrest.annotationsbasic.dao.impl.DocumentRepository">

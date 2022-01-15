@@ -1,0 +1,8 @@
+Ścieżka klasy (classpath:)
+
+
+@Value supports other prefixes too, like file: and url:.
+
+@Value("classpath:data/resource-data.txt")
+Resource resourceFile;
+

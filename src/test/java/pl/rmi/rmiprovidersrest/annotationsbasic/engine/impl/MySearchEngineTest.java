@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @SpringBootTest
 class MySearchEngineTest {
 
-    private final SearchEngine engine = new SearchEngineService();
+    private final SearchEngine engine = new MySearchEngine();
 
     @Test
     @DisplayName("should find document by type")

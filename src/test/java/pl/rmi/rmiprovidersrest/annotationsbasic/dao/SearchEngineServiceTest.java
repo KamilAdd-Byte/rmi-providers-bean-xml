@@ -5,11 +5,15 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.io.Resource;
 import pl.rmi.rmiprovidersrest.annotationsbasic.engine.SearchEngine;
 import pl.rmi.rmiprovidersrest.annotationsbasic.model.Document;
 import pl.rmi.rmiprovidersrest.annotationsbasic.model.Type;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
+import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -20,18 +24,31 @@ class SearchEngineServiceTest {
     private SearchEngine engine;
     private Type odtType;
 
-    @Before
+    @BeforeEach
     public void setup(){
         // definiujemy ścieżke path dla pliku konfiguracyjnego xml
-        context = new ClassPathXmlApplicationContext("home/kamillodzinski/git_work/rmi-providers-rest/src/main/resources/mydocuments-context.xml");
+        context = new ClassPathXmlApplicationContext("resources/mydocuments-context.xml");
         engine = context.getBean(SearchEngine.class);
         odtType = context.getBean("odtType",Type.class);
     }
 
     @Test
     void shouldFindDocumentByType() {
-        List<Document> documents = engine.findByType(odtType);
-        assertTrue(documents.size() == 1);
+        Resource resource = context.getResource("../src/main/resources/documents/annotations_spring.txt");
+
+        try {
+            InputStream inputStream = resource.getInputStream();
+            Scanner scanner = new Scanner(inputStream);
+                while (scanner.hasNext()){
+                    System.out.println(scanner.nextLine());
+                }
+                scanner.close();
+                inputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     @Test

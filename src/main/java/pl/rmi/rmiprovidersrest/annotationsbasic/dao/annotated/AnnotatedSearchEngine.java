@@ -1,6 +1,7 @@
 package pl.rmi.rmiprovidersrest.annotationsbasic.dao.annotated;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import pl.rmi.rmiprovidersrest.annotationsbasic.dao.DocumentDao;
 import pl.rmi.rmiprovidersrest.annotationsbasic.engine.SearchEngine;
@@ -11,12 +12,17 @@ import java.util.Arrays;
 import java.util.List;
 
 /** Adnotacja z wartością
- * Kontener springa utworzy ziarno o identyfikatorze engine
+ * Kontener springa utworzy ziarno o identyfikatorze "engine" i zdefiniowanego egzemplarza "prototype"
  */
 @Service("engine")
+@Scope("prototype")
 public class AnnotatedSearchEngine implements SearchEngine {
     @Autowired
     private DocumentDao documentDao;
+
+    public AnnotatedSearchEngine(DocumentDao documentDao) {
+        this.documentDao = documentDao;
+    }
 
     /**
      * @param documentType a class object that is not null
