@@ -16,3 +16,12 @@ Który rodzaj konfiguracji wybrać?
 *Ziarno Java* - Zalecana metoda, stosowana w przypadku ziaren i składników, które nie wiele sie zmieniają
 
 *Groovy* - nowa, prosta i oszczędna
+
+--------------------------------------------------------------------------------------
+Adnotacja @Scope (klasa konfiguracyjna w Javie)
+
+@Scope("singleton") - Kontener Spring zwraca pojedynczy egzemplarz. Ustawienie domyślne
+@Scope("prototype") - Kontener Spring zwraca nowy egzemplarz w KAŻDYM żądaniu.
+@Scope("request") - Kontener Spring zwraca nowy egzemplarz w KAŻDYM żądaniu HTTP. Zakresu używa sie w kontekście sieciowym.
+@Scope("session") - Kontener Spring zwraca nowy egzemplarz w KAŻDYM żądaniu HTTP. Zakresu używa sie w kontekście sieciowym.
+@Scope("globalSession") - Kontener Spring zwraca POJEDYNCZY egzemplarz w KAŻDYM żądaniu HTTP. Zakresu używa sie w kontekście sieciowym.

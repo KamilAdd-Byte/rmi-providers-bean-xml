@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.context.annotation.Scope;
 import pl.rmi.rmiprovidersrest.annotationsbasic.dao.DocumentDao;
 import pl.rmi.rmiprovidersrest.annotationsbasic.model.Document;
 

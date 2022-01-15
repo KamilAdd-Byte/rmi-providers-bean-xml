@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import pl.rmi.rmiprovidersrest.annotationsbasic.dao.SearchEngineService;
 import pl.rmi.rmiprovidersrest.annotationsbasic.engine.SearchEngine;
 import pl.rmi.rmiprovidersrest.annotationsbasic.model.Document;
 import pl.rmi.rmiprovidersrest.annotationsbasic.model.Type;
@@ -16,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @SpringBootTest
 class MySearchEngineTest {
 
-    private final SearchEngine engine = new MySearchEngine();
+    private final SearchEngine engine = new SearchEngineService();
 
     @Test
     @DisplayName("should find document by type")
